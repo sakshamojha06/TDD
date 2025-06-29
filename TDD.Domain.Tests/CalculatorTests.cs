@@ -68,7 +68,7 @@
         }
 
         [Fact]
-        public void Divide_Throws_DivideByZeroException_If_Denominator_Is_0()
+        public void Divide_Throws_DivideByZeroException_If_Denominator_Is_Zero()
         {
             //Arrange
             var calculator = GetCalculator();
