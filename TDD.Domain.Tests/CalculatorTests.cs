@@ -3,7 +3,7 @@
     public class CalculatorTests
     {
         [Fact]
-        public void Add_ReturnsSumOfTwoNumbers()
+        public void Add_Returns_Sum_Of_Two_Numbers()
         {
             //Arrange
             var calculator = new Calculator();
@@ -16,7 +16,7 @@
         }
 
         [Fact]
-        public void Subtract_ReturnsSubtractionOfTwoNumbers()
+        public void Subtract_Returns_Subtraction_Of_Two_Numbers()
         {
             //Arrange
             var calculator = GetCalculator();
@@ -29,7 +29,7 @@
         }
 
         [Fact]
-        public void Multiply_ReturnsMultiplicationOfTwoNumbers()
+        public void Multiply_Returns_Multiplication_Of_Two_Numbers()
         {
             //Arrange
             var calculator = GetCalculator();
@@ -42,7 +42,7 @@
         }
 
         [Fact]
-        public void Divide_ReturnsDivisionOfTwoNumbers()
+        public void Divide_Returns_Division_Of_Two_Numbers()
         {
             //Arrange
             var calculator = GetCalculator();
@@ -55,7 +55,7 @@
         }
 
         [Fact]
-        public void Divide_Retuns0IfNumberatorIs0()
+        public void Divide_Retuns_Zero_If_Numerator_Is_Zero()
         {
             //Arrange
             var calculator = GetCalculator();
