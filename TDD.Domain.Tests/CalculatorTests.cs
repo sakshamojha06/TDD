@@ -54,17 +54,30 @@
             Assert.Equal(5, result);
         }
 
+        //[Fact]
+        //public void Divide_Retuns_Zero_If_Numerator_Is_Zero()
+        //{
+        //    //Arrange
+        //    var calculator = GetCalculator();
+
+        //    //Act
+        //    var result = calculator.Divide(0, 500);
+
+        //    //Assert
+        //    Assert.Equal(0, result);
+        //}
+
         [Fact]
-        public void Divide_Retuns_Zero_If_Numerator_Is_Zero()
+        public void Divide_Throws_NumeratorIsZeroException_If_Numerator_Is_Zero()
         {
             //Arrange
             var calculator = GetCalculator();
 
             //Act
-            var result = calculator.Divide(0, 500);
+            var exception = Assert.Throws<NumeratorIsZeroException>(() => calculator.Divide(0, 10));
 
             //Assert
-            Assert.Equal(0, result);
+            Assert.Equal("Numberator must me greater than 0", exception.Message);
         }
 
         [Fact]

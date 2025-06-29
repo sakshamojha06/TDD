@@ -19,10 +19,18 @@
 
         public int Divide(int a, int b)
         {
+            if (a == 0)
+                throw new NumeratorIsZeroException("Numberator must me greater than 0");
+
             if (b == 0)
                 throw new DivideByZeroException("Cannot divide by 0");
 
             return a / b;
         }
+    }
+
+    public class NumeratorIsZeroException: Exception
+    {
+        public NumeratorIsZeroException(string message): base(message) { }
     }
 }
