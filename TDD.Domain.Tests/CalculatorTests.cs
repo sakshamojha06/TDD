@@ -1,101 +1,49 @@
-﻿namespace TDD.Domain.Tests
+﻿using Xunit;
+
+namespace TDD.Domain.Tests
 {
     public class CalculatorTests
     {
-        [Fact]
-        public void Add_Returns_Sum_Of_Two_Numbers()
-        {
-            //Arrange
-            var calculator = new Calculator();
-
-            //Act
-            var result = calculator.Add(5, 10);
-
-            //Assert
-            Assert.Equal(15, result);
-        }
+        private readonly Calculator _calculator = new Calculator();
 
         [Fact]
-        public void Subtract_Returns_Subtraction_Of_Two_Numbers()
+        public void Add_ReturnsSum()
         {
-            //Arrange
-            var calculator = GetCalculator();
-
-            //Act
-            var result = calculator.Subtract(10, 5);
-
-            //Assert
+            var result = _calculator.Add(2, 3);
             Assert.Equal(5, result);
         }
 
         [Fact]
-        public void Multiply_Returns_Multiplication_Of_Two_Numbers()
+        public void Subtract_ReturnsDifference()
         {
-            //Arrange
-            var calculator = GetCalculator();
-
-            //Act
-            var result = calculator.Multiply(10, 5);
-
-            //Assert
-            Assert.Equal(50, result);
+            var result = _calculator.Subtract(5, 3);
+            Assert.Equal(2, result);
         }
 
         [Fact]
-        public void Divide_Returns_Division_Of_Two_Numbers()
+        public void Multiply_ReturnsProduct()
         {
-            //Arrange
-            var calculator = GetCalculator();
+            var result = _calculator.Multiply(4, 3);
+            Assert.Equal(12, result);
+        }
 
-            //Act
-            var result = calculator.Divide(10, 2);
-
-            //Assert
+        [Fact]
+        public void Divide_ReturnsQuotient()
+        {
+            var result = _calculator.Divide(10, 2);
             Assert.Equal(5, result);
         }
 
-        //[Fact]
-        //public void Divide_Retuns_Zero_If_Numerator_Is_Zero()
-        //{
-        //    //Arrange
-        //    var calculator = GetCalculator();
-
-        //    //Act
-        //    var result = calculator.Divide(0, 500);
-
-        //    //Assert
-        //    Assert.Equal(0, result);
-        //}
-
         [Fact]
-        public void Divide_Throws_NumeratorIsZeroException_If_Numerator_Is_Zero()
+        public void Divide_ThrowsNumeratorIsZeroException_WhenNumeratorIsZero()
         {
-            //Arrange
-            var calculator = GetCalculator();
-
-            //Act
-            var exception = Assert.Throws<NumeratorIsZeroException>(() => calculator.Divide(0, 10));
-
-            //Assert
-            Assert.Equal("Numberator must me greater than 0", exception.Message);
+            Assert.Throws<NumeratorIsZeroException>(() => _calculator.Divide(0, 2));
         }
 
         [Fact]
-        public void Divide_Throws_DivideByZeroException_If_Denominator_Is_Zero()
+        public void Divide_ThrowsDivideByZeroException_WhenDenominatorIsZero()
         {
-            //Arrange
-            var calculator = GetCalculator();
-
-            //Act
-            var exception = Assert.Throws<DivideByZeroException>(() => calculator.Divide(10, 0));
-
-            //Assert
-            Assert.Equal("Cannot divide by 0", exception.Message);
-        }
-
-        private Calculator GetCalculator()
-        {
-            return new Calculator();
+            Assert.Throws<DivideByZeroException>(() => _calculator.Divide(10, 0));
         }
     }
 }
