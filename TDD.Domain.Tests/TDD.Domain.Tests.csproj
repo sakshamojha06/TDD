@@ -27,4 +27,9 @@
     <Using Include="Xunit" />
   </ItemGroup>
 
+  <Target Name="CoverageReport" AfterTargets="Build" Condition="'$(IsTestCoverageRun)' != 'true'">
+	<Exec Command="dotnet test --collect:&quot;XPlat Code Coverage&quot; -p:IsTestCoverageRun=true" />
+	<Exec Command="dotnet tool run reportgenerator -reports:**/coverage.cobertura.xml -targetdir:coveragereport -reporttypes:Html" />
+  </Target>
+
 </Project>
