@@ -32,4 +32,8 @@
 	<Exec Command="dotnet tool run reportgenerator -reports:**/coverage.cobertura.xml -targetdir:coveragereport -reporttypes:Html" />
   </Target>
 
+  <Target Name="PreBuild" BeforeTargets="PreBuildEvent">
+    <Exec Command="rmdir /s /q &quot;$(ProjectDir)coveragereport&quot;&#xD;&#xA;rmdir /s /q &quot;$(ProjectDir)TestResults&quot;&#xD;&#xA;" />
+  </Target>
+
 </Project>
